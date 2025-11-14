@@ -8,27 +8,48 @@ visto na disciplina e de técnicas de refatoração
 
 ```mermaid
 classDiagram
-    class Duck{
-      +String beakColor
-      +swim()
-      +quack()
+    class Locadora{
+      - String nome
+      - List<Cliente> clientes
+      - List<Filme> filmes
     }
-    class Fish{
-      -int sizeInFeet
-      -canEat()
+    
+    class Locacao{
+      - List<Filme> filmes
+      - LocalDateTime inicio
+      - LocalDateTime fim
+      - Double multa_diaria
+      - Pagamento pagamento
+      - Enum status
     }
-    class Zebra{
-      +bool is_wild
-      +run()
+    
+    class Cliente{
+     - String nome
+     - String email
+     - String celular
+     - List<Locacao> locacoes
     }
 
-    Animal <|-- Duck
-    Animal <|-- Fish
-    Animal <|-- Zebra
+    class Filme{
+    - String nome
+    - Enum categoria
+    - Double valor
+    - Int quantidade
+    }
 
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
+    class Pagamento{
+    
+    }
+
+    Locadora o-- Filme 
+
+    Locadora o-- Cliente
+
+    Cliente *-- Locacao
+
+    Locacao *-- Filme
+
+    Locacao -- Pagamento
 ```
-`    Animal: +mate()
+
 
