@@ -1,4 +1,4 @@
-package filmatoca.src;
+package com.demo;
 
 public class Filme {
     private String nome;

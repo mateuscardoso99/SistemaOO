@@ -1,4 +1,5 @@
-package filmatoca.src;
+package com.demo;
+
 public class Categoria{
     private String nome;
     

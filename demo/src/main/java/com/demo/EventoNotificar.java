@@ -1,4 +1,4 @@
-package filmatoca.src;
+package com.demo;
 public enum EventoNotificar {
     NOVO_FILME("Novo filme"),
     FILME_DEVOLVIDO("Filme devolvido");

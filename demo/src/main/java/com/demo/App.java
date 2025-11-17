@@ -1,4 +1,4 @@
-package filmatoca.src;
+package com.demo;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -40,6 +40,7 @@ public class App {
         locacao2.desalocarFilmes();
     }
 
+    //um smeel de teste
     public static void badMethod(){
         LocalDateTime now;
     }

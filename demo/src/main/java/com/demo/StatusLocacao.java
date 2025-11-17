@@ -1,4 +1,4 @@
-package filmatoca.src;
+package com.demo;
 public enum StatusLocacao{
     ENTREGUE,
     PENDENTE,
