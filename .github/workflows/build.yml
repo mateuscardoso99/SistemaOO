@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v4
         with: 
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '21'
 
       - name: Build com o maven - limpa, compila, empacota, testa e verifica em modo batch
         run: mvn -B clean verify
