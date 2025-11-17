@@ -27,6 +27,7 @@ jobs:
 
       - name: Build com o maven - limpa, compila, empacota, testa e verifica em modo batch
         run: mvn -B clean verify
+        working-directory: demo
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
