@@ -1,19 +1,35 @@
 name: Build
+
 on:
   push:
     branches:
       - develop
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
+
   sonarqube:
     name: SonarQube
     runs-on: ubuntu-latest
+
     steps:
+      - name: Baixar o código
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      
+      - name: Configurar o Java
+      - uses: actions/setup-java@v4
+        with: 
+          distribuition: 'temurin'
+          java-version: '17'
+
+      - name: Build com o maven - limpa, compila, empacota, testa e verifica em modo batch
+        run: mvn -B clean verify
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+          SONAR_HOST_URL: "https://sonarcloud.io"
