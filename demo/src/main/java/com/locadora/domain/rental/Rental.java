@@ -12,6 +12,7 @@ public class Rental {
     private LocalDateTime end;
     private List<Movie> movies;
     private Payment payment;
+    private RentalStatus status;
 
     public Rental(){}
 
@@ -45,6 +46,14 @@ public class Rental {
     
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public void setStatus(RentalStatus status){
+        this.status=status;
+    }
+
+    public RentalStatus getStatus(){
+        return this.status;
     }
 
      @Override

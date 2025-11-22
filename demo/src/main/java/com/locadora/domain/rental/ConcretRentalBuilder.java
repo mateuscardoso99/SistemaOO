@@ -45,6 +45,7 @@ public class ConcretRentalBuilder implements RentalBuilder{
     @Override
     public Rental build() {
         Rental built = this.rental;
+        built.setStatus(RentalStatus.PENDENTE); //padrão começa em pendente
         reset();
         return built;
     }
