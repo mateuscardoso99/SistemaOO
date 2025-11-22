@@ -52,4 +52,17 @@ classDiagram
     Locacao -- Pagamento
 ```
 
+## Iniciar projeto com maven
 
+```bash
+mvn archetype:generate -DgroupId=com.locadora \
+    -DartifactId=locadora-filmes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DinteractiveMode=false
+```
+
+
+```bash
+mvn clean package
+java -jar target/locadora-filmes-1.0-SNAPSHOT.jar
+```
