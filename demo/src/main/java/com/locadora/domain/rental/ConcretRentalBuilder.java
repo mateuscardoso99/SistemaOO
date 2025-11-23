@@ -3,7 +3,7 @@ package com.locadora.domain.rental;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.locadora.domain.movie.Movie;
+import com.locadora.domain.media.Media;
 
 public class ConcretRentalBuilder implements RentalBuilder{
 
@@ -31,8 +31,8 @@ public class ConcretRentalBuilder implements RentalBuilder{
     }
 
     @Override
-    public RentalBuilder setMovies(List<Movie> movies) {
-        this.rental.setMovies(movies);
+    public RentalBuilder setMedias(List<Media> medias) {
+        this.rental.setMedias(medias);
         return this;
     }
 

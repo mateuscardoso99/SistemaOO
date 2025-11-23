@@ -22,8 +22,8 @@ public class MediaService {
         return instance;
     }
 
-    public void addMedia(Media movie){
-        movieRepository.add(movie);
+    public void addMedia(Media media){
+        movieRepository.add(media);
     }
 
     public List<Media> list(){
