@@ -45,8 +45,6 @@ classDiagram
 
     Locadora o-- Cliente
 
-    Cliente *-- Locacao
-
     Locacao *-- Filme
 
     Locacao -- Pagamento
