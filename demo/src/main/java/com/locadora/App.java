@@ -16,12 +16,15 @@ import com.locadora.service.MediaService;
 
 public class App {
     public static void main( String[] args ){
-
         MediaService mediaService = MediaService.getInstance();
         CustomerService customerService = CustomerService.getInstance();
        
         DataSeed.initializerMedia(mediaService);
         DataSeed.initializerCustomers(customerService);
+
+        customerService.findAll().forEach(c -> 
+            mediaService.getEventManager().register(c)
+        );
 
         Scanner scanner = new Scanner(System.in);
 

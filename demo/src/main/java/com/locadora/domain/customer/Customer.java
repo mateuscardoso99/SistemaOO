@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.locadora.domain.rental.Rental;
+import com.locadora.service.EventListener;
 
 //classe que representa um cliente, tem uma lista de alocações
-public class Customer implements Listener{
+public class Customer implements EventListener{
     private String name;
     private String email;
     private String phone;
