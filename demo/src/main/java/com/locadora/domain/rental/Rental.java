@@ -10,6 +10,7 @@ import com.locadora.domain.media.Media;
 // classe que representa a locação de medias com o padrão builder
 // cada cliente tem uma lista de locações
 public class Rental {
+    private Integer id;
     private LocalDateTime start;
     private LocalDateTime end;
     private List<Media> medias;
@@ -67,6 +68,14 @@ public class Rental {
          this.customer = customer;
     }
 
+    public Integer getId(){
+        return this.id;
+    }    
+
+    public void setId(Integer id){
+        this.id = id;
+    }
+
      @Override
     public String toString() {
         return "Rental:" +
@@ -74,6 +83,7 @@ public class Rental {
                 "\n\tstart: " + start + "," +
                 "\n\tend: " + end + "," +
                 "\n\tmedias:" + medias.size() + "," +
-                "\n\tpayment: " + payment;
+                "\n\tpayment: " + payment +
+                "\n\tid: " + id;
     }
 }
