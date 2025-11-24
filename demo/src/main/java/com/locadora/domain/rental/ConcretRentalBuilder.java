@@ -3,6 +3,7 @@ package com.locadora.domain.rental;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.locadora.domain.enums.PaymentMethod;
 import com.locadora.domain.media.Media;
 
 public class ConcretRentalBuilder implements RentalBuilder{
@@ -37,7 +38,7 @@ public class ConcretRentalBuilder implements RentalBuilder{
     }
 
     @Override
-    public RentalBuilder setPayment(Payment payment) {
+    public RentalBuilder setPayment(PaymentMethod payment) {
         this.rental.setPayment(payment);
         return this;
     }
@@ -45,7 +46,8 @@ public class ConcretRentalBuilder implements RentalBuilder{
     @Override
     public Rental build() {
         Rental built = this.rental;
-        built.setStatus(RentalStatus.PENDENTE); //padrão começa em pendente
+        //padrão começa em pendente
+        built.setStatus(RentalStatus.PENDENTE);
         reset();
         return built;
     }
