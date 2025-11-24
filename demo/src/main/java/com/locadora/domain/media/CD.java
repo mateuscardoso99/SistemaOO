@@ -13,8 +13,9 @@ public class CD extends Media{
 
     @Override
     public String toString(){
-        return super.toString() +
-            "\nduration: " + durationMinutes + "min" +
-            "\ncategory: " + category + " }";
+        return 
+            "Midia: CD" +
+            super.toString() +
+            "\nduration: " + durationMinutes + "min\n";
     }
 }

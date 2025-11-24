@@ -1,7 +1,8 @@
 package com.locadora.config;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,17 +16,23 @@ public class DataReaderCSV {
         List<String[]> data = new ArrayList<>();
 
         try {
-            //pega arquivo como recurso da aplicação dentro do classPath
-            Path resourcePath = Path.of(
-                DataReaderCSV.class.getClassLoader().getResource(path).toURI()
-            );
+            //pega arquivo como recurso da aplicação dentro do jar
+            InputStream in = DataReaderCSV.class.getClassLoader()
+                .getResourceAsStream(path);
 
-            List<String> lines = Files.readAllLines(resourcePath);
-
-            for (String line : lines) {
-                String[] tokens = line.split(",");
-                data.add(tokens);
+            if(in == null){
+                System.out.println("Erro arquivo não encontrado no classPath: " + path);
+                return data;
             }
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            String line = reader.readLine();
+
+            while(line != null){
+                data.add(line.split(","));
+                line = reader.readLine();
+            }
+            
         } catch (Exception e) {
             System.out.println("erro: " + e.getMessage() + " " + e.getCause());
         } 

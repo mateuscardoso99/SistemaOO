@@ -14,8 +14,9 @@ public class Book extends Media {
 
     @Override
     public String toString(){
-        return super.toString() +
-            "\npages: " + pages +
-            "\ncategory: " + category + "\n}";
+        return
+            "Mídia: Livro" +
+            super.toString() +
+            "\npages: " + pages + "\n";
     }
 }
