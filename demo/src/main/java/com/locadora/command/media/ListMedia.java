@@ -1,5 +1,6 @@
-package com.locadora.command;
+package com.locadora.command.media;
 
+import com.locadora.command.Command;
 import com.locadora.domain.enums.MediaType;
 import com.locadora.service.MediaService;
 

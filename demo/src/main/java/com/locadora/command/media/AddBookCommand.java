@@ -1,19 +1,20 @@
-package com.locadora.command;
+package com.locadora.command.media;
 
 import java.util.Scanner;
 
-import com.locadora.domain.media.CDFactory;
+import com.locadora.command.Command;
+import com.locadora.domain.media.BookFactory;
 import com.locadora.domain.media.ConcretMediaRequestBuilder;
 import com.locadora.domain.media.MediaRequest;
 import com.locadora.service.MediaService;
 
-public class AddCdCommand implements Command{
-    
+public class AddBookCommand implements Command {
+
     private final Scanner scanner;
     private final MediaService mediaService;
-    private final CDFactory factory;
+    private final BookFactory factory;
 
-    public AddCdCommand(Scanner scn, CDFactory factory){
+    public AddBookCommand(Scanner scn, BookFactory factory){
         this.scanner = scn;
         this.mediaService = MediaService.getInstance();
         this.factory = factory;
@@ -21,29 +22,30 @@ public class AddCdCommand implements Command{
 
     @Override
     public void execute() {
+   
         ConcretMediaRequestBuilder builder = new ConcretMediaRequestBuilder();
+        
         try {
-            System.out.println("-- Criando nova Mídia de CD --");
-            System.out.println("Digite o Titulo: ");
+            System.out.println("-- Criando nova Midia de Livro --");
+            System.out.print("Título: ");
             String title = scanner.nextLine();
 
-            System.out.println("Digite o tempo de duração(min): ");
-            int minutes = Integer.parseInt(scanner.nextLine());
+            System.out.print("Páginas: ");
+            int pages = Integer.parseInt(scanner.nextLine());
 
-            System.out.println("Digite a quantidade: ");
+            System.out.print("Quantidade: ");
             int quantity = Integer.parseInt(scanner.nextLine());
 
-            System.out.println("Digite o preço: ");
+            System.out.print("Preço: ");
             double price = Double.parseDouble(scanner.nextLine());
 
-            MediaRequest request = builder.setCategory(null)
-            .setDurationMinutes(minutes)
+            MediaRequest request = builder.setTitle(title)
+            .setPages(pages)
             .setPrice(price)
             .setQuantity(quantity)
-            .setTitle(title)
             .build();
-        
-            mediaService.addMedia(factory.create(request));
+
+            mediaService.addMedia(factory.create(request));   
         } catch (Exception e) {
             System.out.println("Exceção gerada: " + e.getCause());
         }

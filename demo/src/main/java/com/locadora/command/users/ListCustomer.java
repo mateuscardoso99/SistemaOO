@@ -1,5 +1,6 @@
-package com.locadora.command;
+package com.locadora.command.users;
 
+import com.locadora.command.Command;
 import com.locadora.service.CustomerService;
 
 public class ListCustomer implements Command {

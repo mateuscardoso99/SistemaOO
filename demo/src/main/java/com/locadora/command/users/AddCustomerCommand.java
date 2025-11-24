@@ -1,7 +1,8 @@
-package com.locadora.command;
+package com.locadora.command.users;
 
 import java.util.Scanner;
 
+import com.locadora.command.Command;
 import com.locadora.domain.customer.Customer;
 import com.locadora.service.CustomerService;
 

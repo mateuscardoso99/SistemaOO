@@ -23,6 +23,14 @@ public class MediaRepository {
         return medias;
     }
 
+    //pode retornar mais de uma midia com o mesmo nome, tipo LIKE no sql
+    public List<Media> findByName(String name){
+        return medias
+                .stream()
+                .filter(m -> m.getTitle().equalsIgnoreCase(name))
+                .toList();
+    }
+
     public void add(Media media) {
         medias.add(media);
     }

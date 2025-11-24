@@ -2,11 +2,11 @@ package com.locadora;
 
 import java.util.Scanner;
 
-import com.locadora.command.AddBookCommand;
-import com.locadora.command.AddCdCommand;
-import com.locadora.command.ListCustomer;
-import com.locadora.command.ListMedia;
 import com.locadora.command.MenuController;
+import com.locadora.command.media.AddBookCommand;
+import com.locadora.command.media.AddCdCommand;
+import com.locadora.command.media.ListMedia;
+import com.locadora.command.users.ListCustomer;
 import com.locadora.config.DataSeed;
 import com.locadora.domain.enums.MediaType;
 import com.locadora.domain.media.BookFactory;

@@ -50,4 +50,8 @@ public class MediaService {
                 return repository.findAll();
         }
     }
+
+    public List<Media> findMedia(String name){
+        return repository.findByName(name);
+    }
 }
