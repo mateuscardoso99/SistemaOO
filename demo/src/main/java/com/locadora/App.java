@@ -8,6 +8,7 @@ import com.locadora.command.ListCustomer;
 import com.locadora.command.ListMedia;
 import com.locadora.command.MenuController;
 import com.locadora.config.DataSeed;
+import com.locadora.domain.enums.MediaType;
 import com.locadora.domain.media.BookFactory;
 import com.locadora.domain.media.CDFactory;
 import com.locadora.service.CustomerService;
@@ -28,7 +29,9 @@ public class App {
         menu.addCommand(1, new AddBookCommand(scanner, new BookFactory()));
         menu.addCommand(2, new AddCdCommand(scanner, new CDFactory()));
         menu.addCommand(3, new ListCustomer());
-        menu.addCommand(4, new ListMedia());
+        menu.addCommand(4, new ListMedia(MediaType.ALL));
+        menu.addCommand(5, new ListMedia(MediaType.BOOK));
+        menu.addCommand(6, new ListMedia(MediaType.CD));
 
         menu.start();
     }

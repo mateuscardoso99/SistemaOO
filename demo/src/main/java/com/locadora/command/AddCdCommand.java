@@ -22,27 +22,30 @@ public class AddCdCommand implements Command{
     @Override
     public void execute() {
         ConcretMediaRequestBuilder builder = new ConcretMediaRequestBuilder();
+        try {
+            System.out.println("-- Criando nova Mídia de CD --");
+            System.out.println("Digite o Titulo: ");
+            String title = scanner.nextLine();
+
+            System.out.println("Digite o tempo de duração(min): ");
+            int minutes = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Digite a quantidade: ");
+            int quantity = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Digite o preço: ");
+            double price = Double.parseDouble(scanner.nextLine());
+
+            MediaRequest request = builder.setCategory(null)
+            .setDurationMinutes(minutes)
+            .setPrice(price)
+            .setQuantity(quantity)
+            .setTitle(title)
+            .build();
         
-        System.out.println("-- Criando nova Mídia de CD --");
-        System.out.println("Digite o Titulo: ");
-        String title = scanner.nextLine();
-
-        System.out.println("Digite o tempo de duração(min): ");
-        int minutes = Integer.parseInt(scanner.nextLine());
-
-        System.out.println("Digite a quantidade: ");
-        int quantity = Integer.parseInt(scanner.nextLine());
-
-        System.out.println("Digite o preço: ");
-        double price = Double.parseDouble(scanner.nextLine());
-
-        MediaRequest request = builder.setCategory(null)
-        .setDurationMinutes(minutes)
-        .setPrice(price)
-        .setQuantity(quantity)
-        .setTitle(title)
-        .build();
-    
-        mediaService.addMedia(factory.create(request));
+            mediaService.addMedia(factory.create(request));
+        } catch (Exception e) {
+            System.out.println("Exceção gerada: " + e.getCause());
+        }
     }
 }

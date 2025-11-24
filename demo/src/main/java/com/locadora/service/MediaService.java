@@ -2,6 +2,9 @@ package com.locadora.service;
 
 import java.util.List;
 
+import com.locadora.domain.enums.MediaType;
+import com.locadora.domain.media.Book;
+import com.locadora.domain.media.CD;
 import com.locadora.domain.media.Media;
 import com.locadora.repository.MediaRepository;
 
@@ -9,10 +12,10 @@ public class MediaService {
 
     private static MediaService instance = null;
 
-    private final MediaRepository movieRepository;
+    private final MediaRepository repository;
 
     private MediaService(){
-        movieRepository = MediaRepository.getInstance();
+        repository = MediaRepository.getInstance();
     }
 
     public static MediaService getInstance(){
@@ -23,10 +26,21 @@ public class MediaService {
     }
 
     public void addMedia(Media media){
-        movieRepository.add(media);
+        repository.add(media);
     }
 
-    public List<Media> list(){
-        return movieRepository.findAll();
+    public List<Media> list(MediaType type){
+        switch (type) {
+            case BOOK:
+                return repository.findAll().stream()
+                    .filter(m -> m instanceof Book)
+                    .toList();
+            case CD:
+                return repository.findAll().stream()
+                    .filter(m -> m instanceof CD)
+                    .toList();
+            default:
+                return repository.findAll();
+        }
     }
 }

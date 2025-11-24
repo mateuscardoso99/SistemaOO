@@ -1,5 +1,7 @@
 package com.locadora.domain.media;
 
+import com.locadora.domain.enums.MediaCategory;
+
 //factory method abstract product
 public abstract class Media {
     protected String title;

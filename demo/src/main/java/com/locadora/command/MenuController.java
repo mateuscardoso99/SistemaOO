@@ -26,7 +26,9 @@ public class MenuController {
             System.out.println("1 - Adicionar mídia Livro");
             System.out.println("2 - Adicionar mídia CD");
             System.out.println("3 - Listar clientes");
-            System.out.println("4 - Listar mídias");
+            System.out.println("4 - Listar todas as midias");
+            System.out.println("5 - Listar livros");
+            System.out.println("6 - Listar CDs");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 

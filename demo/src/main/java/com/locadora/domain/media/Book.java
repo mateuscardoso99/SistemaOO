@@ -1,5 +1,7 @@
 package com.locadora.domain.media;
 
+import com.locadora.domain.enums.MediaCategory;
+
 //concret product
 public class Book extends Media {
     private int pages;

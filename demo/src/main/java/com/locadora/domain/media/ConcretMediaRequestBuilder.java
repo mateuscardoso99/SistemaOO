@@ -1,5 +1,7 @@
 package com.locadora.domain.media;
 
+import com.locadora.domain.enums.MediaCategory;
+
 public class ConcretMediaRequestBuilder implements MediaRequestBuilder {
 
     private MediaRequest mediaRequest;

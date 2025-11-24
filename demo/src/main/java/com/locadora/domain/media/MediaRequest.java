@@ -1,5 +1,7 @@
 package com.locadora.domain.media;
 
+import com.locadora.domain.enums.MediaCategory;
+
 //objeto de requisição a ser usado nos parametros para contrução de qualquer midia
 //uso do padrao builder
 public class MediaRequest {

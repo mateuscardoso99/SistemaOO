@@ -1,8 +1,8 @@
-package com.locadora.domain.media;
+package com.locadora.domain.enums;
 
 public enum MediaCategory {
     AVENTURA,
-    ACÃO,
+    AÇÃO,
     ROMANCE,
     FICÇÃO,
     INFANTIL,

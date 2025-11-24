@@ -21,28 +21,32 @@ public class AddBookCommand implements Command {
 
     @Override
     public void execute() {
-        
+   
         ConcretMediaRequestBuilder builder = new ConcretMediaRequestBuilder();
+        
+        try {
+            System.out.println("-- Criando nova Midia de Livro --");
+            System.out.print("Título: ");
+            String title = scanner.nextLine();
 
-        System.out.println("-- Criando nova Midia de Livro --");
-        System.out.print("Título: ");
-        String title = scanner.nextLine();
+            System.out.print("Páginas: ");
+            int pages = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Páginas: ");
-        int pages = Integer.parseInt(scanner.nextLine());
+            System.out.print("Quantidade: ");
+            int quantity = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Quantidade: ");
-        int quantity = Integer.parseInt(scanner.nextLine());
+            System.out.print("Preço: ");
+            double price = Double.parseDouble(scanner.nextLine());
 
-        System.out.print("Preço: ");
-        double price = Double.parseDouble(scanner.nextLine());
+            MediaRequest request = builder.setTitle(title)
+            .setPages(pages)
+            .setPrice(price)
+            .setQuantity(quantity)
+            .build();
 
-        MediaRequest request = builder.setTitle(title)
-        .setPages(pages)
-        .setPrice(price)
-        .setQuantity(quantity)
-        .build();
-
-        mediaService.addMedia(factory.create(request));
+            mediaService.addMedia(factory.create(request));   
+        } catch (Exception e) {
+            System.out.println("Exceção gerada: " + e.getCause());
+        }
     }
 }

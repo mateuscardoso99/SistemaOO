@@ -16,15 +16,19 @@ public class AddCustomerCommand implements Command{
 
     @Override
     public void execute() {
-        System.out.println("--- CADASTRANDO NOVO CLIENTE ---");
-        System.out.println("Informe seu nome: ");
-        String name = scanner.nextLine();
-        System.out.println("Informe seu Email: ");
-        String email = scanner.nextLine();
-        System.out.println("Informe seu numero de telefone: ");
-        String phone = scanner.nextLine();
+        try{
+            System.out.println("--- CADASTRANDO NOVO CLIENTE ---");
+            System.out.println("Informe seu nome: ");
+            String name = scanner.nextLine();
+            System.out.println("Informe seu Email: ");
+            String email = scanner.nextLine();
+            System.out.println("Informe seu numero de telefone: ");
+            String phone = scanner.nextLine();
 
-        Customer customer = new Customer(name, email, phone);
-        customerService.addCustomer(customer);
+            Customer customer = new Customer(name, email, phone);
+            customerService.addCustomer(customer);
+        } catch(Exception exception){
+            System.out.println("Exceção gerada: " + exception.getCause());
+        }
     }
 }

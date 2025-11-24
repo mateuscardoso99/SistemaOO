@@ -3,10 +3,10 @@ package com.locadora.config;
 import java.util.List;
 
 import com.locadora.domain.customer.Customer;
+import com.locadora.domain.enums.MediaCategory;
 import com.locadora.domain.media.BookFactory;
 import com.locadora.domain.media.CDFactory;
 import com.locadora.domain.media.ConcretMediaRequestBuilder;
-import com.locadora.domain.media.MediaCategory;
 import com.locadora.domain.media.MediaRequest;
 import com.locadora.service.CustomerService;
 import com.locadora.service.MediaService;
