@@ -48,6 +48,30 @@ classDiagram
     Locacao *-- Filme
 
     Locacao -- Pagamento
+
+    class EventListener
+    <<interface>> EventListener
+    EventListener : + update()
+    
+    EventManager <-- MediaService
+    EventListener <|-- Customer
+    EventListener <-- EventManager
+
+    class EventManager
+    EventManager : - EventListener listeners[]
+    EventManager : + register()
+    EventManager : + unRegister()
+    EventManager : + notify()
+
+    class Customer
+    Customer : - String nome
+    Customer : - String email
+    Customer : - String phone
+    Customer : - List<Rental> rentals
+    Customer : + update()
+
+    class MediaService
+    MediaService : - EventManager eventManager
 ```
 
 ## Iniciar projeto com maven
