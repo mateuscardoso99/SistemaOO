@@ -3,6 +3,7 @@ package com.locadora.domain.rental;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.locadora.domain.customer.Customer;
 import com.locadora.domain.enums.PaymentMethod;
 import com.locadora.domain.media.Media;
 
@@ -41,6 +42,12 @@ public class ConcretRentalBuilder implements RentalBuilder{
     public RentalBuilder setPayment(PaymentMethod payment) {
         this.rental.setPayment(payment);
         return this;
+    }
+
+    @Override
+    public RentalBuilder setCustomer(Customer customer) {
+        this.rental.setCustomer(customer);
+        return this;        
     }
 
     @Override
