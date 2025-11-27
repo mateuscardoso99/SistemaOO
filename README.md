@@ -8,46 +8,29 @@ visto na disciplina e de técnicas de refatoração
 
 ```mermaid
 classDiagram
-    class Locadora{
-      - String nome
-      - List<Cliente> clientes
-      - List<Filme> filmes
-    }
+    class EventListener
+    <<interface>> EventListener
+    EventListener : + update()
     
-    class Locacao{
-      - List<Filme> filmes
-      - LocalDateTime inicio
-      - LocalDateTime fim
-      - Double multa_diaria
-      - Pagamento pagamento
-      - Enum status
-    }
-    
-    class Cliente{
-     - String nome
-     - String email
-     - String celular
-     - List<Locacao> locacoes
-    }
+    EventManager <-- MediaService
+    EventListener <|-- Customer
+    EventListener <-- EventManager
 
-    class Filme{
-    - String nome
-    - Enum categoria
-    - Double valor
-    - Int quantidade
-    }
+    class EventManager
+    EventManager : - EventListener listeners[]
+    EventManager : + register()
+    EventManager : + unRegister()
+    EventManager : + notify()
 
-    class Pagamento{
-    
-    }
+    class Customer
+    Customer : - String nome
+    Customer : - String email
+    Customer : - String phone
+    Customer : - List<Rental> rentals
+    Customer : + update()
 
-    Locadora o-- Filme 
-
-    Locadora o-- Cliente
-
-    Locacao *-- Filme
-
-    Locacao -- Pagamento
+    class MediaService
+    MediaService : - EventManager eventManager
 ```
 
 ## Iniciar projeto com maven
