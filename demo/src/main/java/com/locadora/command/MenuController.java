@@ -1,5 +1,6 @@
 package com.locadora.command;
 
+import com.locadora.service.LogService;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -31,6 +32,7 @@ public class MenuController {
             System.out.println("6 - Listar CDs");
             System.out.println("7 - Buscar Mídias por título");
             System.out.println("8 - Buscar Cliente por email");
+            System.out.println("9 - Listar Logs");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
@@ -39,6 +41,12 @@ public class MenuController {
             if(option == 0) break;
             Command invoker = commands.get(option);
             if(invoker != null){
+                if (option != 9) {
+                    LogService.getInstance().register(
+                            "Command executado: " + invoker.getClass().getSimpleName()
+                    );
+                }
+
                 invoker.execute();
             }
             else{
