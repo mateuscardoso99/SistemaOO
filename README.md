@@ -67,35 +67,59 @@ classDiagram
     ConcretMediaRequestBuilder <-- MediaRequest
     Media <-- ConcretMediaRequestBuilder
 
+    
+    class MediaRepository{
+        - MediaRepository instance
+        - List<Media> midias
+        + getInstance()
+        
+    }
 
+    MediaRepository 0-- Media
+    
+    class Customers{
+         - String nome
+         - String email
+         - String celular
+         - List<Locacao> locacoes
+    }
+
+    class CustomersRepository{
+        - CustomersRepository instance
+        - List<Customer> customers
+        + getInstance()
+    }
+
+    class CustomersRepository 0-- Customers
+    
+    class Rental{
+    
+    }
+
+    class RentalRepository{
+        - RentalRepository instance
+        - List<Rental> rentals
+        + getInstance()
+    }
+
+    RentalRepository 0-- Rental
+
+    class Log{
+        - int id
+        - String mensage
+    }
+
+    class LogRepository{
+        - LogRepository instance
+        + getInstance()
+    }
+
+    LogRepository 0-- Log
 ```
 
-## Diagrama 2
-
-```mermaid
-classDiagram
-
-class MediaRepository{
-
-}
-
-class CustomersRepository{
-
-}
-
-class RentalRepository{
-
-}
-
-class LogRepository{
-  
-}
-
-```
 
 
-
-## Diagram 3
+## Diagram 2
 
 ```mermaid
 classDiagram
