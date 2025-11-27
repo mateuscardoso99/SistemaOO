@@ -37,7 +37,7 @@ public class MediaService {
         repository.add(media);
         eventManager.notify("Midia adicionada: " + media.getTitle());
 
-        logService.register("Midia adicionada: " +
+        logService.addLog("Midia adicionada: " +
                 "Titulo (" + media.getTitle() + "), " +
                 "Categoria (" + media.getCategory() + "), " +
                 "Quantidade (" + media.getQuantity() + "), " +

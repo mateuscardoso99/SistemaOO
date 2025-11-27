@@ -1,34 +1,31 @@
 package com.locadora.domain.log;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Log {
-    private static Log instance;
-    private final List<String> logs;
+    private int id;
+    private String message;
 
-    private Log() {
-        this.logs = new ArrayList<>();
+    public Log(){}
+
+    public Log(int id, String message){
+        this.id=id;
+        this.message=message;
     }
 
-    public static Log getInstance() {
-        if (instance == null) {
-            instance = new Log();
-        }
-        return instance;
+    public int getId() {
+        return id;
     }
 
-    public void register(String message) {
-        String formatted = "[" + LocalDateTime.now() + "] " + message;
-        logs.add(formatted);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public List<String> getLogs() {
-        return logs;
+    public String getMessage() {
+        return message;
     }
 
-    public void printAll() {
-        logs.forEach(System.out::println);
+    public void setMessage(String message) {
+        this.message = message;
     }
+
+    
 }

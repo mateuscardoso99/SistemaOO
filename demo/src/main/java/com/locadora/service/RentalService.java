@@ -36,7 +36,7 @@ public class RentalService {
     public void addRental(Rental rental){
         repository.add(rental);
 
-        logService.register("Locação adicionada: " +
+        logService.addLog("Locação adicionada: " +
                 "Id (" + rental.getId() + "), " +
                 "Cliente (" + rental.getCustomer() + "), " +
                 "Pagamento (" +rental.getPayment() + "), " +
