@@ -119,18 +119,31 @@ classDiagram
         + getInstance()
     }
 
-    class MidiaService{
+    class MediaService{
+
     }
+
+    MediaRepository <-- MediaService
 
     class LogService{
+
     }
+
+    LogRepository <-- LogService
 
     class RentalService{
-    }
-
-    class CustomerService{
 
     }
+
+    RentalRepository <-- RentalService
+
+    class CustomersService{
+
+    }
+
+    CustomersRepository <-- CustomersService
+
+
     LogRepository 0-- Log
 ```
 
