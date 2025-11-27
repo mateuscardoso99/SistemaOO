@@ -4,10 +4,106 @@ visto na disciplina e de técnicas de refatoração
 
 ### [Conventional_commits](/conventional_commits.md)
 
-![imagem uml]()
 
 ```mermaid
 classDiagram
+
+    class Media {
+      <<Abstract>>
+      - String title
+      - Double price
+      - int quantity
+      - MediaCategory category
+    }
+
+    class Cd {
+      - int durationTime
+    }
+
+    class Book {
+      - int pages
+    }
+
+    class MediaFactory {
+      <<interface>>
+      + Media create(media)
+    }
+
+    class BookFactory{
+      @Override
+      create()
+    }
+
+    class CdFactory{
+      @Override
+      create()
+    }
+
+    Media <|-- Cd
+    Media <|-- Book
+    MediaFactory <|-- BookFactory
+    MediaFactory <|-- CdFactory
+
+    class MediaRequestBuilder{
+      <<interface>>
+      - MediaRequest mediarequest
+      - reset()
+      - build()
+      - setCategory()
+      - setTitle()
+      - setQuantity()
+      - setPrice()
+    }
+
+    class ConcretMediaRequestBuilder{
+
+    }
+
+    class MediaRequest{
+
+    }
+
+    MediaRequestBuilder <|-- ConcretMediaRequestBuilder
+    ConcretMediaRequestBuilder <-- MediaRequest
+    Media <-- ConcretMediaRequestBuilder
+
+
+```
+
+## Diagrama 2
+
+```mermaid
+classDiagram
+
+class MediaRepository{
+
+}
+
+class CustomersRepository{
+
+}
+
+class RentalRepository{
+
+}
+
+class LogRepository{
+  
+}
+
+```
+
+
+
+## Diagram 3
+
+```mermaid
+classDiagram
+    class Log{
+      - int id
+      - String 
+    }
+
     class Locadora{
       - String nome
       - List<Cliente> clientes
@@ -23,7 +119,7 @@ classDiagram
       - Enum status
     }
     
-    class Cliente{
+    class Customers{
      - String nome
      - String email
      - String celular
