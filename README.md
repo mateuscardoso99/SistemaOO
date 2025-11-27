@@ -46,21 +46,24 @@ classDiagram
 
     class MediaRequestBuilder{
       <<interface>>
-      - MediaRequest mediarequest
-      - reset()
-      - build()
-      - setCategory()
-      - setTitle()
-      - setQuantity()
-      - setPrice()
+      + MediaRequest mediarequest
+      + reset()
+      + build()
+      + setCategory()
+      + setTitle()
+      + setQuantity()
+      + setPrice()
     }
 
     class ConcretMediaRequestBuilder{
-
+    
     }
 
     class MediaRequest{
-
+        - String title
+        - Double price
+        - int quantity
+        - MediaCategory category
     }
 
     MediaRequestBuilder <|-- ConcretMediaRequestBuilder
@@ -110,10 +113,24 @@ classDiagram
     }
 
     class LogRepository{
+        - id
+        - List<Log> logs
         - LogRepository instance
         + getInstance()
     }
 
+    class MidiaService{
+    }
+
+    class LogService{
+    }
+
+    class RentalService{
+    }
+
+    class CustomerService{
+
+    }
     LogRepository 0-- Log
 ```
 
