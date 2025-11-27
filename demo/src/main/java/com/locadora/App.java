@@ -1,8 +1,8 @@
 package com.locadora;
 
 import java.util.Scanner;
-
 import com.locadora.command.MenuController;
+import com.locadora.command.log.ListLogCommand;
 import com.locadora.command.media.AddBookCommand;
 import com.locadora.command.media.AddCdCommand;
 import com.locadora.command.media.FindMedia;
@@ -39,6 +39,7 @@ public class App {
         menu.addCommand(6, new ListMedia(MediaType.CD));
         menu.addCommand(7, new FindMedia(scanner));
         menu.addCommand(8, new FindUser(scanner));
+        menu.addCommand(9, new ListLogCommand());
         menu.start();
     }
 }
