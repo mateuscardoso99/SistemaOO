@@ -31,6 +31,7 @@ public class MenuController {
             System.out.println("6 - Listar CDs");
             System.out.println("7 - Buscar Mídias por título");
             System.out.println("8 - Buscar Cliente por email");
+            System.out.println("9 - Listar Logs");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 

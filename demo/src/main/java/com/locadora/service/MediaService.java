@@ -14,9 +14,11 @@ public class MediaService {
     private static MediaService instance = null;
     private final MediaRepository repository;
     private final EventManager eventManager;
+    private final LogService logService;
 
     private MediaService(){
         repository = MediaRepository.getInstance();
+        logService = LogService.getInstance();
         eventManager = new EventManager();
     }
 
@@ -34,6 +36,13 @@ public class MediaService {
     public void addMedia(Media media){
         repository.add(media);
         eventManager.notify("Midia adicionada: " + media.getTitle());
+
+        logService.addLog("Midia adicionada: " +
+                "Titulo (" + media.getTitle() + "), " +
+                "Categoria (" + media.getCategory() + "), " +
+                "Quantidade (" + media.getQuantity() + "), " +
+                "Preco (" + media.getPrice() + ")"
+        );
     }
 
     public List<Media> list(MediaType type){

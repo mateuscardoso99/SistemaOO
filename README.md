@@ -4,7 +4,6 @@ visto na disciplina e de técnicas de refatoração
 
 ### [Conventional_commits](/conventional_commits.md)
 
-![imagem uml]()
 
 ```mermaid
 classDiagram
@@ -31,6 +30,26 @@ classDiagram
 
     class MediaService
     MediaService : - EventManager eventManager
+```
+
+## Diagrama de sequência sobre notificar clientes quando uma nova mídia é adicionada
+```mermaid
+sequenceDiagram
+  participant MS as MediaService
+  participant EM as EventManager
+  participant C1 as Customer (listener 1)
+  participant C2 as Customer (listener 2)
+
+  MS->>MS: addMedia()
+  MS->>EM: notify()
+
+  note right of EM: EventManager acessa o atributo interno listeners[]
+
+  llop para cada listener
+    EM->>C1: update()
+
+    EM->>C2: update()
+  end
 ```
 
 ## Iniciar projeto com maven

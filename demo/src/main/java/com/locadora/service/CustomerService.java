@@ -8,10 +8,11 @@ import com.locadora.repository.CustomerRepository;
 public class CustomerService {
 
     private static CustomerService instance = null;
-
+    private final LogService logService;
     private final CustomerRepository customerRepository;
 
     private CustomerService(){
+        this.logService = LogService.getInstance();
         this.customerRepository = CustomerRepository.getInstance();
     }
 
@@ -28,6 +29,12 @@ public class CustomerService {
 
     public void addCustomer(Customer c){
         customerRepository.add(c);
+
+        logService.addLog("Cliente adicionado: " +
+                "Nome (" + c.getName() + "), " +
+                "Email (" + c.getEmail() + "), " +
+                "Numero (" + c.getPhone() + ")"
+        );
     }
 
     public Customer findCustomer(String email){
