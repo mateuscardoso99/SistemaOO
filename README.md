@@ -90,7 +90,7 @@ classDiagram
         + getInstance()
     }
 
-    class CustomersRepository 0-- Customers
+    CustomersRepository 0-- Customers
     
     class Rental{
     
