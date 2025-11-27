@@ -45,7 +45,7 @@ sequenceDiagram
 
   note right of EM: EventManager acessa o atributo interno listeners[]
 
-  llop para cada listener
+  loop para cada listener
     EM->>C1: update()
 
     EM->>C2: update()
